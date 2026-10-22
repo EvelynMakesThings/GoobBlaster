@@ -75,12 +75,18 @@ func _process(delta: float) -> void:
 				).y * 20,
 				1.0 - exp(-10 * delta)
 			)
-		
+		var vol = spectrum_analyzer.get_magnitude_for_frequency_range(20,20000).length()
 		# Circler
 		time = lerp(
 			time,
-			time+spectrum_analyzer.get_magnitude_for_frequency_range(20,20000).length()*Sensitivity*delta,
+			time+vol*Sensitivity*delta,
 			1.0 - exp(-10 * delta)
 		)
 		$Circler.position.x = circlePos.x + cos(time*40)*1.5
 		$Circler.position.y = circlePos.y + sin(time*40)*1.5
+		$Circler.scale = lerp(
+			$Circler.scale,
+			Vector3(vol*Sensitivity,vol*Sensitivity,vol*Sensitivity),
+			1.0 - exp(-10 * delta)
+		)
+		
