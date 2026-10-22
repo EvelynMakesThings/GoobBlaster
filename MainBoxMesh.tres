@@ -1,0 +1,10 @@
+[gd_resource type="BoxMesh" format=3 uid="uid://du7w3fy3gxt64"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0if16"]
+albedo_color = Color(0, 0, 0, 1)
+metallic_specular = 0.45
+rim_enabled = true
+
+[resource]
+material = SubResource("StandardMaterial3D_0if16")
+size = Vector3(1, 4, 1)
